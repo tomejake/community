@@ -1,4 +1,4 @@
-package community.community;
+package com.web;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
