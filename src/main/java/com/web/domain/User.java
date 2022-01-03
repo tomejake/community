@@ -1,35 +1,32 @@
 package com.web.domain;
 
-import com.web.domain.enums.Board;
+import com.web.domain.enums.BoardType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
 @Entity
 @Table
-public class User {
+public class User implements Serializable {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
     @Column
-    private String title;
+    private String name;
 
     @Column
-    private String subTitle;
+    private String password;
 
     @Column
-    private String content;
-
-    @Column
-    @Enumerated(EnumType.STRING)
-    private Board board;
+    private String email;
 
     @Column
     private LocalDateTime createdDate;
@@ -37,18 +34,13 @@ public class User {
     @Column
     private LocalDateTime updatedDate;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    private User user;
-
     @Builder
-    public User(String title, String subTitle, String content, Board board, LocalDateTime createdDate, LocalDateTime updatedDate, User user){
-        this.title = title;
-        this.subTitle = subTitle;
-        this.content = content;
-        this.board = board;
+    public User(String name, String password, String content, String email, LocalDateTime createdDate, LocalDateTime updatedDate, User user){
+        this.name = name;
+        this.password = password;
+        this.email = email;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
-        this.user = user;
     }
 
 }

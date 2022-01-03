@@ -1,16 +1,18 @@
 package com.web.domain;
 
+import com.web.domain.enums.BoardType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Board {
+public class Board implements Serializable {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +29,7 @@ public class Board {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private com.web.domain.enums.Board board;
+    private BoardType boardType;
 
     @Column
     private LocalDateTime createdDate;
@@ -39,11 +41,11 @@ public class Board {
     private User user;
 
     @Builder
-    public Board(String title, String subTitle, String content, com.web.domain.enums.Board board, LocalDateTime createdDate, LocalDateTime updatedDate, User user){
+    public Board(String title, String subTitle, String content, BoardType boardType, LocalDateTime createdDate, LocalDateTime updatedDate, User user){
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
-        this.board = board;
+        this.boardType = boardType;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
         this.user = user;
