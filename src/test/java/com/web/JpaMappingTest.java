@@ -5,8 +5,7 @@ import com.web.domain.User;
 import com.web.domain.enums.BoardType;
 import com.web.repository.BoardRepository;
 import com.web.repository.UserRepository;
-import org.aspectj.lang.annotation.Before;
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -27,7 +26,7 @@ public class JpaMappingTest {
     @Autowired
     BoardRepository boardRepository;
 
-    @Before("")
+    @BeforeEach
     public void init(){
         User user = userRepository.save(User.builder().name("havi").password("test").email(email).createdDate(LocalDateTime.now()).build());
 
