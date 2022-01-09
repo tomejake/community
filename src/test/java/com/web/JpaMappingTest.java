@@ -1,6 +1,7 @@
 package com.web;
 
 import com.web.domain.User;
+import com.web.repository.BoardRepository;
 import com.web.repository.UserRepository;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
