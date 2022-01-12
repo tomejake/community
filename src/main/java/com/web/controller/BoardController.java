@@ -20,7 +20,6 @@ public class BoardController {
         return "/board/form";
     }
 
-    @ResponseBody
     @GetMapping("list")
     public String list(@PageableDefault Pageable pageable, Model model) {
         model.addAttribute("boardList", boardService.findBoardList(pageable));
