@@ -9,7 +9,7 @@
         <th>작성 날짜</th>
       </thead>
       <tbody>
-          <tr v-for="item in board" v-bind="item.idx">
+          <tr v-for="item in board" :key="item.idx">
             <td>{{board.idx}}</td>
             <td>{{board.boardType}}</td>
             <td>{{board.title}}</td>
@@ -25,12 +25,14 @@ import BoardService from '../services/BoardService.js'
 export default {
     name: 'Board',
     data(){
-        board = []
+        return {
+            board : []
+        }
     },
     methods: {
         getBoard(){
-            BoardService.getBoard().then(response) => ({
-                this.board = response.data;
+        BoardService.getBoard().then((response) => {
+                this.board = response.data;   
             });
         }
     },
