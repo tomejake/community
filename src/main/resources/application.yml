@@ -1,11 +1,15 @@
 server:
   port: 7070
 spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
   #  datasource:
   #    url: jdbc:mysql://
   #    username:
   #    password:
   #    driver-class-name: com.mysql.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: create
@@ -27,6 +31,7 @@ spring:
           facebook:
             client-id: 564162601158748
             client-secret: dd56c82cf93b958f1d00e30b355df0c2
+
 custom:
   oauth2:
     kakao:

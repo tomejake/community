@@ -1,14 +1,17 @@
 package com.web.controller;
 
+import com.web.domain.Board;
 import com.web.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+
+@RestController
 @RequestMapping("/board")
 public class BoardController {
 
@@ -22,8 +25,7 @@ public class BoardController {
     }
 
     @GetMapping("/list")
-    public String list(@PageableDefault Pageable pageable, Model model){
-        model.addAttribute("boardList", boardService.findBoardList(pageable));
-        return "/board/list";
+    public Page<Board> list(@PageableDefault Pageable pageable, Model model){
+       return boardService.findBoardList(pageable);
     }
 }
