@@ -28,9 +28,9 @@ public class JpaMappingTest {
 
     @BeforeEach
     public void init(){
-        User user = userRepository.save(User.builder().name("havi").password("test").email(email).createdDate(LocalDateTime.now()).build());
+        User user = userRepository.save(User.builder().name("havi").password("test").email(email).createDate(LocalDateTime.now()).build());
 
-        Board board = boardRepository.save(Board.builder().title(boardTestTitle).subTitle("서브 타이틀").content("콘텐츠").boardType(BoardType.free).createdDate(LocalDateTime.now()).updatedDate(LocalDateTime.now()).user(user).build());
+        Board board = boardRepository.save(Board.builder().title(boardTestTitle).subTitle("서브 타이틀").content("콘텐츠").boardType(BoardType.free).createDate(LocalDateTime.now()).updateDate(LocalDateTime.now()).user(user).build());
     }
 
     @Test

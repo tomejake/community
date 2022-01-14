@@ -30,7 +30,7 @@ public class CommunityApplication {
 					.name("havi")
 					.password("test")
 					.email("havi@gmail.com")
-					.createdDate(LocalDateTime.now())
+					.createDate(LocalDateTime.now())
 					.build());
 
 			IntStream.rangeClosed(1, 200).forEach(index -> boardRepository.save(Board.builder()
@@ -38,8 +38,8 @@ public class CommunityApplication {
 					.subTitle("순서"+index)
 					.content("콘텐츠")
 					.boardType(BoardType.free)
-					.createdDate(LocalDateTime.now())
-					.updatedDate(LocalDateTime.now())
+					.createDate(LocalDateTime.now())
+					.updateDate(LocalDateTime.now())
 					.user(user)
 					.build()));
 		};
