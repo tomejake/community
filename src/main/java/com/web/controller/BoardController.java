@@ -26,7 +26,7 @@ public class BoardController {
     }
 
     @GetMapping("/list")
-    public Page<Board> list(@PageableDefault Pageable pageable, Model model){
+    public Page<Board> list(@PageableDefault(size = 200) Pageable pageable, Model model){
        return boardService.findBoardList(pageable);
     }
 }
