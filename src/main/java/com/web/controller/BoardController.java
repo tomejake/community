@@ -28,4 +28,9 @@ public class BoardController {
     public Page<Board> list(@PageableDefault(size = 10) Pageable pageable, Model model){
        return boardService.findBoardList(pageable);
     }
+
+    @PostMapping({"","/"})
+    public void test(){
+        System.out.println("boardService = boardService = boardService = boardService = boardService = boardService = ");
+    }
 }
