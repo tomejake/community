@@ -1,4 +1,5 @@
 <template>
+  <BoardComponent />
   <div class="box">
     <form @submit.prevent="submitForm">
       <label for="name">이름</label>
@@ -7,7 +8,6 @@
     </form>
     <p>{{logMessage}}</p>
   </div>
-  <BoardComponent />
 </template>
 
 <script>

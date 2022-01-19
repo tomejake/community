@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin(origins = "http://192.168.25.20:8080/")
+@CrossOrigin(origins = "http://192.168.25.20:4000/")
 @RestController
 @RequestMapping("/board")
 public class BoardController {
