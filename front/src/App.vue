@@ -1,38 +1,38 @@
 <template>
   <div class="box">
     <form @submit.prevent="submitForm">
-      <label for="userid">아이디</label>
-      <input type="text" id="userid" v-model="userid">
+      <label for="name">이름</label>
+      <input type="text" id="name" v-model="name">
       <input type="submit" value="전송">
     </form>
     <p>{{logMessage}}</p>
   </div>
-  <!-- <BoardComponent /> -->
+  <BoardComponent />
 </template>
 
 <script>
-// import BoardComponent from './components/BoardComponent.vue'
+import BoardComponent from './components/BoardComponent.vue'
 import {registUser} from './services/UserSignService.js'
 
 export default {
   name: 'App',
   data() {
     return {
-      userid: '',
+      name: '',
       logMessage: ''
     }
   },
   components: {
-    //BoardComponent
+    BoardComponent
   },
   methods: {
     async submitForm() {
       // API 요청시 전달할 userData 객체
       const userData = {
-        userid: this.userid,
+        name: this.name,
       };
-      const { data } = await registUser(userData);
-      this.logMessage = `${data.username} 님이 가입되었습니다.`;
+      await registUser(userData);
+      this.logMessage = userData.name;
     },
   },
 }
