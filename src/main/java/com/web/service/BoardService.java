@@ -18,7 +18,7 @@ public class BoardService {
 
     @Transactional(readOnly = true)
     public Page<Board> findBoardList(Pageable pageable){
-        pageable = PageRequest.of(pageable.getPageNumber() <= 0 ? 0 : pageable.getPageNumber() - 1, pageable.getPageSize());
+        pageable = PageRequest.of(3, pageable.getPageSize());
         return boardRepository.findAll(pageable);
     }
 

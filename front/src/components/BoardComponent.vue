@@ -17,7 +17,7 @@
         </tr>
     </tbody>
 </table>
-
+{{test}}
 </template>
 
 <script>
@@ -27,13 +27,15 @@ export default {
     name: 'BoardComponent',
     data(){
         return {
-            board : []
+            board: [],
+            test: []
         }
     },
     methods: {
         getBoard(){
         BoardService.getBoard().then((response) => {
                 this.board = response.data.content;
+                this.test = response;
             });
         }
     },
@@ -42,3 +44,9 @@ export default {
     }
 }
 </script>
+
+<style>
+td {
+    padding: 20px;
+}
+</style>

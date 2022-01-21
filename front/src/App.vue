@@ -1,12 +1,12 @@
 <template>
   <BoardComponent />
   <div class="box">
-    <form @submit.prevent="submitForm">
+    <!-- <form @submit.prevent="submitForm">
       <label for="name">이름</label>
       <input type="text" id="name" v-model="name">
       <input type="submit" value="전송">
     </form>
-    <p>{{logMessage}}</p>
+    <p>{{logMessage}}</p> -->
   </div>
 </template>
 

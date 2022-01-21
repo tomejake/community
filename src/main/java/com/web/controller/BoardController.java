@@ -5,13 +5,14 @@ import com.web.domain.User;
 import com.web.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin(origins = "http://192.168.25.20:4000/")
+@CrossOrigin(origins = "http://localhost:4000/")
 @RestController
 @RequestMapping("/board")
 public class BoardController {
@@ -26,7 +27,7 @@ public class BoardController {
 //    }
 
     @GetMapping("/list")
-    public Page<Board> list(@PageableDefault(size = 10) Pageable pageable, Model model){
+    public Page<Board> list(Pageable pageable){
        return boardService.findBoardList(pageable);
     }
 
