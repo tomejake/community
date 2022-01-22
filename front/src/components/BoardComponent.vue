@@ -10,12 +10,15 @@
     </thead>
     <tbody>
         <tr v-for="item in board" :key="item.idx">
-        <td>{{item.idx}}</td>
-        <td>{{item.boardType}}</td>
-        <td>{{item.title}}</td>
-        <td>{{item.createDate}}</td>
+            <td>{{item.idx}}</td>
+            <td>{{item.boardType}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.createDate}}</td>
         </tr>
     </tbody>
+    <tfoot>
+        <button></button>
+    </tfoot>
 </table>
 <ul>
     <li>&laquo;</li>
