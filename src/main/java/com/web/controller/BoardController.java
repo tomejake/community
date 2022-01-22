@@ -37,4 +37,12 @@ public class BoardController {
     public void test(@RequestBody User user){
         System.out.println("User == " + user.getName());
     }
+
+    @PostMapping("/write")
+    @ResponseBody
+    public void write(@RequestBody Board board){
+        System.out.println("boardType == " + board.getBoardType());
+        System.out.println("title == " + board.getTitle());
+        System.out.println("content == " + board.getContent());
+    }
 }

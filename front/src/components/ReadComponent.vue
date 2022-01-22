@@ -22,31 +22,18 @@
             <p><input type="submit"></p>
       </div>
   </form>
-  {{log}}
 </template>
 
 <script>
-import BoardService from '../services/BoardService.js'
-
 export default {
-    name: "WriteComponent",
+    name: "ReadComponent",
     data() {
         return {
-            boardType: '',
-            title: '',
-            content: '',
-            log: ''
+
         }
     },
     methods: {
-        async writeForm(){
-            const boardData = {
-                boardType: this.boardType,
-                title: this.title,
-                content: this.content,
-            };
-            await BoardService.postBoard(boardData);
-        }
+
     },
 }
 </script>

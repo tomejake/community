@@ -12,7 +12,7 @@
         <tr v-for="item in board" :key="item.idx">
             <td>{{item.idx}}</td>
             <td>{{item.boardType}}</td>
-            <td>{{item.title}}</td>
+            <td><a href="#">{{item.title}}</a></td>
             <td>{{item.createDate}}</td>
         </tr>
     </tbody>

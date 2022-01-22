@@ -1,14 +1,18 @@
 import axios from 'axios';
 
-const BOARD_API_BASE_URL = 'http://localhost:7070/board/list';
+const BOARD_API_BASE_URL = 'http://localhost:7070/board/';
 
 class BoardService{
     getBoard(i){
-        return axios.get(BOARD_API_BASE_URL, {
+        return axios.get(BOARD_API_BASE_URL+'list', {
             params:{
                 pageNum: i,
             }
         });
+    }
+
+    postBoard(boardData){
+        return axios.post(BOARD_API_BASE_URL+'write', boardData)
     }
 }
 
