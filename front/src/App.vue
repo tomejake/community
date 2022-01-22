@@ -1,4 +1,5 @@
 <template>
+  <WriteComponent />
   <BoardComponent />
   <div class="box">
     <!-- <form @submit.prevent="submitForm">
@@ -12,6 +13,7 @@
 
 <script>
 import BoardComponent from './components/BoardComponent.vue'
+import WriteComponent from './components/WriteComponent.vue'
 import {registUser} from './services/UserSignService.js'
 
 export default {
@@ -23,7 +25,8 @@ export default {
     }
   },
   components: {
-    BoardComponent
+    BoardComponent,
+    WriteComponent
   },
   methods: {
     async submitForm() {
