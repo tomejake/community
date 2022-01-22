@@ -27,11 +27,12 @@ public class BoardController {
 //    }
 
     @GetMapping("/list")
-    public Page<Board> list(Pageable pageable){
-       return boardService.findBoardList(pageable);
+    public Page<Board> list(Pageable pageable, @RequestParam int pageNum){
+        System.out.println("pageNum = " + pageNum);
+        return boardService.findBoardList(pageable, pageNum);
     }
 
-    @PostMapping("example")
+    @PostMapping("/example")
     @ResponseBody
     public void test(@RequestBody User user){
         System.out.println("User == " + user.getName());

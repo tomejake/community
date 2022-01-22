@@ -17,7 +17,15 @@
         </tr>
     </tbody>
 </table>
-{{test}}
+<ul>
+    <li>&laquo;</li>
+    <li @click="prePage">&lsaquo;</li>
+    <li @click="getBoard(i+firstPage)" v-for="i in lastPage" :key="i">
+        {{i+firstPage}}
+    </li>
+    <li @click="nextPage()">&rsaquo;</li>
+    <li>&raquo;</li>
+</ul>
 </template>
 
 <script>
@@ -28,19 +36,33 @@ export default {
     data(){
         return {
             board: [],
-            test: []
+            totalPages: 0,
+            firstPage: 0,
+            lastPage: 10,
+            thisPage: 1
         }
     },
     methods: {
-        getBoard(){
-        BoardService.getBoard().then((response) => {
+        getBoard(i) {
+            BoardService.getBoard(i-1).then((response) => {
                 this.board = response.data.content;
-                this.test = response;
+                this.totalPages = response.data.totalPages;
+                this.thisPage = i;
             });
+        },
+        prePage(){
+            if(this.firstPage != 0){
+                this.firstPage -= 10;
+            }
+        },
+        nextPage(){
+            if(this.totalPages >= this.firstPage+11){
+                this.firstPage += 10;
+            }
         }
     },
     created() {
-        this.getBoard();
+        this.getBoard(1);
     }
 }
 </script>
@@ -48,5 +70,12 @@ export default {
 <style>
 td {
     padding: 20px;
+}
+
+li {
+    list-style-type: none;
+    float: left;
+    margin-left: 20px;
+    cursor: pointer;
 }
 </style>
